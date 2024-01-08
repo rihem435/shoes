@@ -1,6 +1,6 @@
-
 import 'package:app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBoutton extends StatelessWidget {
   final String? text;
@@ -11,8 +11,8 @@ class CustomBoutton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 344,
-      height: 44,
+      width: 344.w,
+      height: 44.h,
       child: ElevatedButton(
           onPressed: () {
             function!();
@@ -20,9 +20,9 @@ class CustomBoutton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             backgroundColor: AppColors.colorVert,
             foregroundColor: Colors.white,
-            padding: EdgeInsets.only(left: 5, top: 10, bottom: 10),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            padding: EdgeInsets.only(left: 5.w, top: 10.h, bottom: 10.h),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.r)),
           ),
           child: Text('$text')),
     );
