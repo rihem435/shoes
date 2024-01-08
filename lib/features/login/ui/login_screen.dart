@@ -9,6 +9,7 @@ import 'package:app/features/login/logic/login_cubit.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:text_divider/text_divider.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -24,34 +25,32 @@ class _LoginPageState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Form(
-        key: context.read<LoginCubit>().formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(23.0),
-          child: Column(
-            children: [
-              Expanded(
-                  flex: 3, child: Image.asset("assets/images/img_login.png")),
-              Expanded(
-                child: FittedBox(
+        body: SingleChildScrollView(
+      child: SafeArea(
+        child: Form(
+          key: context.read<LoginCubit>().formKey,
+          child: Padding(
+            padding: const EdgeInsets.all(23.0).w,
+            child: Column(
+              children: [
+                SizedBox(height: 114.h),
+                Image.asset("assets/images/img_login.png"),
+                FittedBox(
                   fit: BoxFit.scaleDown,
                   child: Text(
                     'Login to Your Account',
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       color: Colors.black,
-                      fontSize: 23,
+                      fontSize: 23.sp,
                       fontFamily: 'Quicksand',
                       fontWeight: FontWeight.w700,
                       height: 0,
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: CustomInputText(
+                SizedBox(height: 26.h),
+                CustomInputText(
                   label: "Email",
                   hintText: "entrez votre email",
                   iconData: "email.png",
@@ -65,10 +64,8 @@ class _LoginPageState extends State<LoginScreen> {
                   },
                   controller: context.read<LoginCubit>().emailController,
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: CustomInputText(
+                SizedBox(height: 31.h),
+                CustomInputText(
                   label: "Password",
                   hintText: "entrez votre password",
                   iconData: "password.png",
@@ -93,17 +90,15 @@ class _LoginPageState extends State<LoginScreen> {
                   },
                   controller: context.read<LoginCubit>().passwordController,
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  width: 344,
-                  height: 61,
+                Container(
+                  width: 344.w,
+                  height: 61.h,
                   child: Align(
                     child: GestureDetector(
                       child: Text(
                         'Forgot Password?',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           fontFamily: "Quicksand",
                         ),
                       ),
@@ -114,10 +109,9 @@ class _LoginPageState extends State<LoginScreen> {
                     alignment: Alignment.topRight,
                   ),
                 ),
-              ),
-              Expanded(
-                flex: 1,
-                child: CustomBoutton(
+                            SizedBox(height: 8.h),
+
+                CustomBoutton(
                   text: "Login",
                   function: () async {
                     login();
@@ -125,17 +119,15 @@ class _LoginPageState extends State<LoginScreen> {
                     print('login');
                   },
                 ),
-              ),
-              Expanded(
-                child: Container(
-                  width: 330,
+               
+                               SizedBox(height: 34.h),
+ Container(
+                  width: 330.w,
                   child: TextDivider.horizontal(
                       text: const Text('Or continue with '),
                       color: AppColors.colorVert),
                 ),
-              ),
-              Expanded(
-                child: Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
@@ -143,7 +135,7 @@ class _LoginPageState extends State<LoginScreen> {
                       icon: Image.asset("assets/images/google.png"),
                     ),
                     SizedBox(
-                      width: 15,
+                      width: 15.w,
                     ),
                     IconButton(
                       onPressed: () {},
@@ -151,17 +143,15 @@ class _LoginPageState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-              ),
-              Expanded(
-                child: CustomRichText(
+                CustomRichText(
                   text1: "Don't have an account?",
                   text2: " Sign Up",
                   function: () {
                     context.pushNamed(Routes.signUpScreen);
                   },
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

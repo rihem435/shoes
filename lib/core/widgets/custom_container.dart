@@ -1,6 +1,7 @@
 
 import 'package:app/core/theming/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomContainer extends StatelessWidget {
   final Widget? child;
@@ -17,7 +18,7 @@ class CustomContainer extends StatelessWidget {
         height: heightContainer1,
         decoration: ShapeDecoration(
           color: AppColors.colorVert,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
         ),
       ),
       Container(
@@ -25,7 +26,7 @@ class CustomContainer extends StatelessWidget {
         height: heightContainer2,
         decoration: ShapeDecoration(
           color: AppColors.colorGris,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
           
         ),
         

@@ -1,7 +1,7 @@
-
 import 'package:app/core/widgets/custom_container.dart';
 import 'package:app/core/widgets/custom_image_asset.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomInputText extends StatelessWidget {
   final String? label;
@@ -26,13 +26,16 @@ class CustomInputText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
-      widthContainer1: 344,
-      heightContainer1: (validator!(controller!.text) != null)
-          ? 100 // Adjust the height when there is an error
-          : 43,
-      heightContainer2: (validator != null)
-          ? 62 // Adjust the height when there is an error
-          : 41,
+      widthContainer1: 344.w,
+      heightContainer1: 43.h,
+      // (
+      // validator!(controller!.text) != null)
+      //   ? 100.h // Adjust the height when there is an error
+      //   : 43.h,
+      heightContainer2: 41.h,
+      // (validator != null)
+      //     ? 62.h // Adjust the height when there is an error
+      //     : 41.h,
       child: TextFormField(
           controller: controller,
           decoration: InputDecoration(
@@ -43,7 +46,7 @@ class CustomInputText extends StatelessWidget {
                 ? Text(
                     label!,
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.w600,
                         fontFamily: "Quicksand",
                         height: 0),
